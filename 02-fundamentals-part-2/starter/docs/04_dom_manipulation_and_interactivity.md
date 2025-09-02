@@ -66,7 +66,8 @@ Before we can change anything, we need to select it. JavaScript has several meth
 // Selecting DOM Elements
 
 // querySelector - works with any CSS selector
-const message = document.querySelector(".message"); // Select by class
+const message = document.querySelector(".message"); 
+// Select by class
 const button = document.querySelector("#btn"); // Select by ID
 const heading = document.querySelector("h1"); // Select by tag
 const input = document.querySelector(".guess"); // Select by class
