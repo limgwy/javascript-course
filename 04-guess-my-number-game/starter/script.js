@@ -47,6 +47,18 @@ document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(`players guessed:`, guess);
 
+  // check is guess value is empty
+  if (!guess) {
+    document.querySelector('.message').textContent = 'Please input a number';
+    return;
+  }
+
+  if (guess < 1 || guess > 20) {
+    document.querySelector('.message').textContent =
+      'Number must be between 1-20';
+    return;
+  }
+
   if (guess === secretNumber) {
     console.log('Your Guess is Correct');
     document.querySelector('.message').textContent = 'YEY Correct Number 🎊';
@@ -58,6 +70,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = `You Won🥳`;
     document.querySelector('.guess').disabled = true;
     document.querySelector('.check').disabled = true;
+    document.body.style.backgroundColor = 'green';
   } else if (guess > secretNumber) {
     console.log('Too High😿😿');
     document.querySelector('.message').textContent = 'Too High😿😿';
@@ -68,6 +81,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.number').textContent = secretNumber;
       document.querySelector('.guess').disabled = true;
       document.querySelector('.check').disabled = true;
+      document.body.style.backgroundColor = 'maroon';
     }
   } else {
     document.querySelector('.message').textContent = 'Too Low 🥺';
@@ -79,6 +93,8 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.number').textContent = secretNumber;
       document.querySelector('.guess').disabled = true;
       document.querySelector('.check').disabled = true;
+      document.body.style.backgroundColor = 'maroon';
+      document.querySelector('.guess').value = '';
     }
   }
 });
@@ -95,4 +111,5 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.guess').value = '';
   document.querySelector('.guess').disabled = false;
   document.querySelector('.guess').disabled = false;
+  document.body, (style.backgroundColor = '');
 });
