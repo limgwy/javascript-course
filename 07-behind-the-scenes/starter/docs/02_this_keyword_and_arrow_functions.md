@@ -244,7 +244,26 @@ Let's see `this` in action with common scenarios you'll encounter in web develop
 
 ```javascript
 // Event handlers and this binding
-const userCard = {
+const functionTypes = {
+  regularFunction: function () {
+    console.log('Arguments length:', arguments.length);
+    console.log('First argument:', arguments[0]);
+  },
+
+  arrowFunction: () => {
+    // console.log(arguments); // ReferenceError: arguments is not defined
+    console.log('Arrow function called');
+  },
+
+  modernFunction: (...args) => {
+    console.log('Args length:', args.length);
+    console.log('First arg:', args[0]);
+  },
+};
+
+functionTypes.regularFunction('hello', 'world');
+functionTypes.arrowFunction('test');
+functionTypes.modernFunction('modern', 'approach');const userCard = {
   name: 'Sarah',
   // element: document.querySelector('.user-card'), // Commented for demo
 
